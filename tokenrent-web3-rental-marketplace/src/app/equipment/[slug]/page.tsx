@@ -253,22 +253,50 @@ const EquipmentDetail = () => {
               </div>
             )}
 
-            <div className="space-y-6">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="p-4 bg-blue-50 rounded-xl">
-                  <div className="text-sm text-gray-600 mb-2">Rental Duration</div>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="number"
-                      min="1"
-                      value={rentalDays}
-                      onChange={(e) => setRentalDays(Math.max(1, parseInt(e.target.value) || 1))}
-                      className="w-20 px-3 py-2 border rounded-lg"
-                      disabled={rentalDetails?.isActive}
-                    />
-                    <span>days</span>
-                  </div>
-                </div>
+<div className="space-y-6">
+  <div className="grid grid-cols-2 gap-6">
+    <div className="p-4 bg-blue-50 rounded-xl">
+      <div className="text-sm text-gray-600 mb-2">Rental Duration</div>
+      <div className="flex items-center gap-2">
+        {/* Mobile controls */}
+        <div className="flex items-center border rounded-lg overflow-hidden">
+          <button
+            type="button"
+            onClick={() => setRentalDays(prev => Math.max(1, prev - 1))}
+            disabled={rentalDays <= 1 || rentalDetails?.isActive}
+            className="px-3 py-2 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 disabled:opacity-50 text-gray-700"
+          >
+            -
+          </button>
+          
+          <input
+            type="number"
+            inputMode="numeric"
+            value={rentalDays}
+            onChange={(e) => setRentalDays(Math.max(1, parseInt(e.target.value) || 1))}
+            className="w-16 px-2 py-2 text-center border-x focus:outline-none"
+            disabled={rentalDetails?.isActive}
+            readOnly
+          />
+          
+          <button
+            type="button"
+            onClick={() => setRentalDays(prev => prev + 1)}
+            disabled={rentalDetails?.isActive}
+            className="px-3 py-2 bg-gray-100 hover:bg-gray-200 active:bg-gray-300 disabled:opacity-50 text-gray-700"
+          >
+            +
+          </button>
+        </div>
+        <span className="text-gray-600">days</span>
+      </div>
+    </div>
+
+
+          
+
+
+
 
                 <div className="p-4 bg-blue-50 rounded-xl">
                   <div className="text-sm text-gray-600 mb-2">Total Cost</div>
