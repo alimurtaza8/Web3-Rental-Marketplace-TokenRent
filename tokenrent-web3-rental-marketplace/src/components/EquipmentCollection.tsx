@@ -34,7 +34,7 @@ const EquipmentCollection = () => {
     const fetchEquipment = async () => {
       try {
         // Modified query to get first 4 items without specific ordering
-        const query = `*[_type == "equipment"][0...5] {
+        const query = `*[_type == "equipment"][0...4] {
           _id,
           name,
           slug,
