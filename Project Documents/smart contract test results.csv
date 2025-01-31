@@ -1,0 +1,19 @@
+Test Name,Status,Error Message,Gas Used,Test Suite
+testGetEquipmentRevertsForNonExistentToken,FAIL,Error != expected error: ERC721NonexistentToken(9999) != Token does not exist,10732,TestEquipmentNFT
+testMintedNFTHasCorrectURI,PASS,,217568,TestEquipmentNFT
+testNFTNameIsCorrect,PASS,,13221,TestEquipmentNFT
+testNFTSymbolIsCorrect,PASS,,12468,TestEquipmentNFT
+testOwnerCanMintNFT,PASS,,18935,TestEquipmentNFT
+testSetRentalContract,FAIL,OwnableUnauthorizedAccount(0x01804CAB4B1F2E6bfb39ad44d083f33e07309d1f38),10674,TestEquipmentNFT
+testSetRentalContractRevertsIfNotOwner,PASS,,14007,TestEquipmentNFT
+testEndRentAgreement,FAIL,Not_Listed(),33446,TestRentalAgreement
+testFailInsufficientPayment,PASS,,33651,TestRentalAgreement
+testFailRentAlreadyRentedEquipment,PASS,,33802,TestRentalAgreement
+testFailUnauthorizedEndRental,PASS,,38259,TestRentalAgreement
+testIsOwner,PASS,,14106,TestRentalAgreement
+testListEquipment,FAIL,EvmError: Revert,15256,TestRentalAgreement
+testOwnerWithdraw,FAIL,Not_Listed(),33379,TestRentalAgreement
+testSetNFTAddress,PASS,,38411,TestRentalAgreement
+testSetNFTAddressEmitsEvent,PASS,,38299,TestRentalAgreement
+testSetNFTAddressByNonOwner,FAIL,Error != expected error: NOT_OWNER() != You are not Owner,13168,TestRentalAgreement
+testStartRentAgreement,FAIL,Not_Listed(),33446,TestRentalAgreement
